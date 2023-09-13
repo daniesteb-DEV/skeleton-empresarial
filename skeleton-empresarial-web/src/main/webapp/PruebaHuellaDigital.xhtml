@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./WEB-INF/template.xhtml">
+
+            <ui:define name="title">
+                Huella
+            </ui:define>
+
+            <ui:define name="head">
+
+            </ui:define>
+
+            <ui:define name="content">
+                <h:form>
+                    <p:panel>
+                        <p:outputLabel value="Usuario"/>
+                        <p:selectOneMenu value="#{controladorPruebaHuellaDigital.usuario}">
+                            <f:selectItem itemLabel="Seleccione Uno" itemValue=""/>
+                            <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}" var="usu"
+                                           itemLabel="#{usu.usuLogin}" itemValue="#{usu}"/>
+                        </p:selectOneMenu>
+                    </p:panel>
+
+                    <p:commandButton styleClass="green-btn" icon="fa fa-save" value="guardar"
+                                     action="#{controladorPruebaHuellaDigital.guardar()}"
+                                     update="growl @form" oncomplete="PF('sdCapturar').show();"/>
+                    <p:commandButton styleClass="green-btn" icon="fa fa-save" value="verificar"
+                                     action="#{controladorPruebaHuellaDigital.verificar()}"
+                                     update="growl @form" oncomplete="PF('sdVerificar').show();"/>
+
+                    <p:outputLabel value="#{controladorPruebaHuellaDigital.usuario.usuFirHuella}"/>
+
+                    <p:sidebar id="sdCapturar" widgetVar="sdCapturar" position="bottom" baseZIndex="10000">
+                        <div style="align-content: center">
+                            <h4 style="font-weight:normal;align-content: center">Ejecute el archivo descargado y acerque el dedo al lector de huella.</h4>
+                        </div>
+                        <div style="align-content: center">
+                            <p:commandButton styleClass="pink-btn" icon="fa fa-close"
+                                             value="Cerrar" oncomplete="PF('sdCapturar').hide()"/>
+                        </div>
+                    </p:sidebar>
+                    <p:sidebar id="sdVerificar" widgetVar="sdVerificar" position="bottom" baseZIndex="10000">
+                        <div style="align-content: center">
+                            <h4 style="font-weight:normal;align-content: center">Las huellas :</h4>
+                        </div>
+                        <div style="align-content: center">
+                            <p:commandButton styleClass="pink-btn" icon="fa fa-close"
+                                             value="Cerrar" oncomplete="PF('sdVerificar').hide()"/>
+                        </div>
+                    </p:sidebar>
+                </h:form>
+                <p:dialog id="msjLector" widgetVar="msjLector" modal="true">
+                    <h:form>
+                        <div style="align-content: center">
+                        </div>
+                    </h:form>
+                </p:dialog>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

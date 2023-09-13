@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+        </f:facet>
+        <title>PRU-PROPIEDAD</title>
+
+    </h:head>
+
+    <div>
+        <div class="ui-g" align="center" style="display: block; margin-left: 5%; margin-right: 5%;">
+            <h:form id="formVericarUserWeb">
+                <p:growl id="growl" showDetail="true" sticky="false" life="5000" />
+                <p:panel>
+                    <div class="ui-g-12 logo-container">
+                        <p:graphicImage name="#{controladorVerificarCodigo.imgLogo}" library="verona-layout" styleClass="logo" 
+                                        style="width: 30%"/>
+
+                        <h2 style="color: #2196F3">Bienvenido</h2>
+                        <h3 style="color: #2196F3">Por favor ingrese el código de verificación que ha sido enviado a su dirección de correo electrónico</h3>
+                    </div>                        
+                    <h:panelGrid columns="2">  
+                        <p:outputLabel value="Código de Verificación: " for="@next"/>
+                        <p:inputText value="#{controladorVerificarCodigo.codigoSesion}" required="true"
+                                     requiredMessage="Ingrese el código de verificación"/>
+
+                    </h:panelGrid>
+                    <h:panelGrid columns="1">
+                        <p:commandButton value="Verificar" class="green-btn"
+                                         title="Enviar código de verificación"
+                                         update="growl formVericarUserWeb" icon="fa fa-check-square"
+                                         action="#{controladorVerificarCodigo.verificarCodigo()}"/>
+                    </h:panelGrid>  
+                    <h:panelGrid columns="1">
+                        <p:outputLabel id="ok" value="#{controladorVerificarCodigo.mensajeVerificacion}"
+                                       style="color: #66BB6A;font-size: 20px"
+                                       rendered="#{controladorVerificarCodigo.cuentaVerificada}"/>
+                        <p:outputLabel id="error" value="#{controladorVerificarCodigo.mensajeVerificacion}"
+                                       style="color: #f44336;font-size: 20px"
+                                       rendered="#{!controladorVerificarCodigo.cuentaVerificada}"/>                             
+
+                    </h:panelGrid>  
+                    <h:panelGrid columns="2">
+                        <p:outputLabel id="lblIntentos" value="Intentos restantes: "
+                                       style="color: #2196F3;font-size: 20px"
+                                       rendered="#{!controladorVerificarCodigo.cuentaVerificada}"/> 
+                        <p:outputLabel id="numIntentos" value="#{3 - controladorVerificarCodigo.numeroIntentos}"
+                                       style="color: #2196F3;font-size: 20px"
+                                       rendered="#{!controladorVerificarCodigo.cuentaVerificada and (3 - controladorVerificarCodigo.numeroIntentos ge 0)}"/> 
+                        <p:outputLabel id="numIntentosCero" value="0"
+                                       style="color: #2196F3;font-size: 20px"
+                                       rendered="#{!controladorVerificarCodigo.cuentaVerificada and (3 - controladorVerificarCodigo.numeroIntentos lt 0)}"/> 
+                    </h:panelGrid>
+                </p:panel>
+
+            </h:form>
+
+        </div>
+    </div>
+
+
+
+</html>

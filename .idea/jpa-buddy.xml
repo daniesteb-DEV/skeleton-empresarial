@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JpaBuddyIdeaProjectConfig">
+    <option name="defaultUnitInitialized" value="true" />
+    <option name="renamerInitialized" value="true" />
+    <option name="reverseEngineeringLastDbConnectionId" value="f4ab9646-a031-47b3-a7dd-be2f17292f0c__skeleton_public" />
+    <option name="reLastEntityCreationPackage" value="skeleton-empresarial-ejb/src/main/java/dev/daniesteb/skeleton/empresarial/domain" />
+  </component>
+</project>

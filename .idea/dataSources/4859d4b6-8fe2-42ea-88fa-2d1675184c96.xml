@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="REPRO360M@207.180.254.176">
+  <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.49">
+    <root id="1"/>
+    <database id="2" parent="1" name="BD-REPRO360">
+      <Grants>11||10|C|G
+11||-9223372036854775808|U|G
+11||10|U|G
+2200||-9223372036854775808|C|G
+2200||10|C|G
+2200||-9223372036854775808|U|G
+2200||10|U|G
+13018||10|C|G
+13018||-9223372036854775808|U|G
+13018||10|U|G</Grants>
+      <IntrospectionStateNumber>126718</IntrospectionStateNumber>
+      <ObjectId>123232</ObjectId>
+      <OwnerName>postgres</OwnerName>
+    </database>
+    <database id="3" parent="1" name="BD-RP360POS">
+      <Grants>11||10|C|G
+11||-9223372036854775808|U|G
+11||10|U|G
+2200||-9223372036854775808|C|G
+2200||10|C|G
+2200||-9223372036854775808|U|G
+2200||10|U|G
+13018||10|C|G
+13018||-9223372036854775808|U|G
+13018||10|U|G</Grants>
+      <IntrospectionStateNumber>126719</IntrospectionStateNumber>
+      <ObjectId>266274</ObjectId>
+      <OwnerName>postgres</OwnerName>
+    </database>
+    <database id="4" parent="1" name="MEJIA2">
+      <Grants>11||10|C|G
+11||-9223372036854775808|U|G
+11||10|U|G
+2200||-9223372036854775808|C|G
+2200||10|C|G
+2200||-9223372036854775808|U|G
+2200||10|U|G
+13018||10|C|G
+13018||-9223372036854775808|U|G
+13018||10|U|G</Grants>
+      <IntrospectionStateNumber>126720</IntrospectionStateNumber>
+      <ObjectId>306497</ObjectId>
+      <OwnerName>postgres</OwnerName>
+    </database>
+    <database id="5" parent="1" name="PROOF-DBRP360">
+      <Grants>11||10|C|G
+11||-9223372036854775808|U|G
+11||10|U|G
+2200||-9223372036854775808|C|G
+2200||10|C|G
+2200||-9223372036854775808|U|G
+2200||10|U|G
+13018||10|C|G
+13018||-9223372036854775808|U|G
+13018||10|U|G</Grants>
+      <IntrospectionStateNumber>126721</IntrospectionStateNumber>
+      <ObjectId>155442</ObjectId>
+      <OwnerName>postgres</OwnerName>
+    </database>
+    <database id="6" parent="1" name="REPRO360M">
+      <Current>1</Current>
+      <Grants>11||10|C|G
+11||-9223372036854775808|U|G
+11||10|U|G
+2200||-9223372036854775808|C|G
+2200||10|C|G
+2200||-9223372036854775808|U|G
+2200||10|U|G
+13018||10|C|G
+13018||-9223372036854775808|U|G
+13018||10|U|G</Grants>
+      <IntrospectionStateNumber>126724</IntrospectionStateNumber>
+      <ObjectId>52070</ObjectId>
+      <OwnerName>postgres</OwnerName>
+    </database>
+    <database id="7" parent="1" name="REPRO360M_TEST">
+      <Grants>11||10|C|G
+11||-9223372036854775808|U|G
+11||10|U|G
+2200||-9223372036854775808|C|G
+2200||10|C|G
+2200||-9223372036854775808|U|G
+2200||10|U|G
+13018||10|C|G
+13018||-9223372036854775808|U|G
+13018||10|U|G</Grants>
+      <IntrospectionStateNumber>126722</IntrospectionStateNumber>
+      <ObjectId>340741</ObjectId>
+      <OwnerName>postgres</OwnerName>
+    </database>
+    <database id="8" parent="1" name="RP360"/>
+    <database id="9" parent="1" name="postgres">
+      <Comment>default administrative connection database</Comment>
+      <Grants>11||10|C|G
+11||-9223372036854775808|U|G
+11||10|U|G
+2200||-9223372036854775808|C|G
+2200||10|C|G
+2200||-9223372036854775808|U|G
+2200||10|U|G
+13018||10|C|G
+13018||-9223372036854775808|U|G
+13018||10|U|G</Grants>
+      <IntrospectionStateNumber>126709</IntrospectionStateNumber>
+      <ObjectId>13318</ObjectId>
+      <OwnerName>postgres</OwnerName>
+    </database>
+    <database id="10" parent="1" name="template0"/>
+    <database id="11" parent="1" name="template1"/>
+    <database id="12" parent="1" name="test_he">
+      <Grants>11||10|C|G
+11||-9223372036854775808|U|G
+11||10|U|G
+2200||-9223372036854775808|C|G
+2200||10|C|G
+2200||-9223372036854775808|U|G
+2200||10|U|G
+13018||10|C|G
+13018||-9223372036854775808|U|G
+13018||10|U|G</Grants>
+      <IntrospectionStateNumber>126716</IntrospectionStateNumber>
+      <ObjectId>340610</ObjectId>
+      <OwnerName>postgres</OwnerName>
+    </database>
+    <role id="13" parent="1" name="pg_execute_server_program">
+      <ObjectId>4571</ObjectId>
+    </role>
+    <role id="14" parent="1" name="pg_monitor">
+      <ObjectId>3373</ObjectId>
+      <RoleGrants>3374
+3375
+3377</RoleGrants>
+    </role>
+    <role id="15" parent="1" name="pg_read_all_settings">
+      <ObjectId>3374</ObjectId>
+    </role>
+    <role id="16" parent="1" name="pg_read_all_stats">
+      <ObjectId>3375</ObjectId>
+    </role>
+    <role id="17" parent="1" name="pg_read_server_files">
+      <ObjectId>4569</ObjectId>
+    </role>
+    <role id="18" parent="1" name="pg_signal_backend">
+      <ObjectId>4200</ObjectId>
+    </role>
+    <role id="19" parent="1" name="pg_stat_scan_tables">
+      <ObjectId>3377</ObjectId>
+    </role>
+    <role id="20" parent="1" name="pg_write_server_files">
+      <ObjectId>4570</ObjectId>
+    </role>
+    <role id="21" parent="1" name="postgres">
+      <BypassRls>1</BypassRls>
+      <CanLogin>1</CanLogin>
+      <CreateDb>1</CreateDb>
+      <CreateRole>1</CreateRole>
+      <ObjectId>10</ObjectId>
+      <Replication>1</Replication>
+      <SuperRole>1</SuperRole>
+    </role>
+    <tablespace id="22" parent="1" name="pg_default">
+      <ObjectId>1663</ObjectId>
+      <StateNumber>1</StateNumber>
+      <OwnerName>postgres</OwnerName>
+    </tablespace>
+    <tablespace id="23" parent="1" name="pg_global">
+      <ObjectId>1664</ObjectId>
+      <StateNumber>1</StateNumber>
+      <OwnerName>postgres</OwnerName>
+    </tablespace>
+  </database-model>
+</dataSource>

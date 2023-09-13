@@ -1,0 +1,10 @@
+
+`	java:S112="FDefine and throw a dedicated exception instead of using a generic one.(¾Ö“Äÿÿÿÿÿ
+c
+java:S2095i"MUse try-with-resources or close this "FileInputStream" in a "finally" clause.(š´Ï¬
+«
+java:S1130="Remove the declaration of thrown exception 'com.coinjih.rp360mejia.excepciones.ServicioExcepcion' which is a subclass of 'java.lang.Exception'.(¾Ö“Äÿÿÿÿÿ
+‡
+java:S1130="lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(¾Ö“Äÿÿÿÿÿ
+W
+java:S1854O"<Remove this useless assignment to local variable "revision".(ÔÍÍûÿÿÿÿ

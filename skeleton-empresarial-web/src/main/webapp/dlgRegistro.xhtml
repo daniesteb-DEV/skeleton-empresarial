@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+        <p:dialog header="Registrarse" modal="true" widgetVar="dlgRegistro" minHeight="40" position="center center" onShow="PF('dlgRegistro').initPosition();">
+            <h:form id="RegistroForm">
+                <p:growl id="growl" showDetail="true" sticky="false" life="5000"/> 
+                <p:outputPanel id="plRegistro" style="text-align:left;">             
+
+                    <p:panelGrid columns="4" layout="grid"
+                                 styleClass="ui-panelgrid-blank ui-fluid" >
+
+                        <p:outputLabel value="#{bundle.CreateCedulaLabel_perCedula}" for="perCedula" />
+                        <p:inputText maxlength="20"  id="perCedula" value="#{controladorRegistro.cedula.perCedula}" title="#{bundle.CreateCedulaTitle_perCedula}" 
+                                     required="true" requiredMessage="Ingrese la identificación" autocomplete="off"
+                                     readonly="#{controladorRegistro.disableInput}"> 
+                            <p:ajax event="change" listener="#{controladorRegistro.traer()}" update="plRegistro growl"/>
+                            <p:ajax event="change" listener="#{controladorRegistro.quitarEspacios()}" update="@this"/>
+                        </p:inputText>
+
+                        <p:outputLabel value="#{bundle.CreateCedulaLabel_perApellidop}" for="perApellidop" />
+                        <p:inputText style="text-transform:uppercase;" id="perApellidop" 
+                                     validatorMessage="Ingrese solo letras en el apellido paterno" 
+                                     value="#{controladorRegistro.cedula.perApellidop}" 
+                                     title="#{bundle.CreateCedulaTitle_perApellidop}" 
+                                     required="true" requiredMessage="Ingrese el apellido paterno"
+                                     autocomplete="off" readonly="#{controladorRegistro.disableInput}">
+                            <p:ajax event="change" listener="#{controladorRegistro.quitarEspacios()}" update="@this"/>
+                            <f:validateRegex  pattern="^[a-zA-Z\sñÑÁÉÍÓÚáéíóú'´]*$"/> 
+                        </p:inputText>
+
+                        <p:outputLabel value="Apellido Materno" for="perApellidom" />
+                        <p:inputText style="text-transform:uppercase;" id="perApellidom" 
+                                     validatorMessage="Ingrese solo letras en el apellido materno" 
+                                     value="#{controladorRegistro.cedula.perApellidom}" 
+                                     title="#{bundle.CreateCedulaTitle_perApellidom}"
+                                     readonly="#{controladorRegistro.disableInput}">
+                            <p:ajax event="change" listener="#{controladorRegistro.quitarEspacios()}" update="@this"/>
+                            <f:validateRegex  pattern="^[a-zA-Z\sñÑÁÉÍÓÚáéíóú'´]*$"/> 
+                        </p:inputText>
+
+                        <p:outputLabel value="Nombres" for="perNombres"/>
+                        <p:inputText required="true"  style="text-transform:uppercase;" 
+                                     id="perNombres" value="#{controladorRegistro.cedula.perNombres}" 
+                                     title="#{bundle.CreateCedulaTitle_perNombres}" 
+                                     requiredMessage="Ingrese el nombre"
+                                     validatorMessage="Ingrese solo letras en el apellido materno" 
+                                     autocomplete="off"
+                                     readonly="#{controladorRegistro.disableInput}">
+                            <p:ajax event="change" listener="#{controladorRegistro.quitarEspacios()}" update="@this"/>
+                            <f:validateRegex  pattern="^[a-zA-Z\sñÑÁÉÍÓÚáéíóú'´]*$"/> 
+                        </p:inputText>
+
+                        <p:outputLabel value="Correo Electrónico" for="txtCorreo"/>
+                        <p:inputText  size="50"  id="txtCorreo" 
+                                      value="#{controladorRegistro.usuario.usuEmail}" 
+                                      validatorMessage="El email es incorrecto"
+                                      required="true" requiredMessage="Ingrese un correo electrónico"
+                                      autocomplete="off" readonly="#{controladorRegistro.disableInput}">
+                            <f:validateRegex  pattern="^((\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)|(\s*))$"/>
+                        </p:inputText>
+                    </p:panelGrid>
+                     <p:panelGrid columns="1" layout="grid"
+                         styleClass="ui-panelgrid-blank ui-fluid" >
+                         <h:outputLabel value="Su usuario es su cédula y su contraseña es su cédula."
+                                        style="font-weight: bold;color: #0A3A9C"/>       
+                     </p:panelGrid>
+                </p:outputPanel>
+                
+                <p:outputPanel>
+                    <hr/>
+                    <div align="center">
+                        <div class="g-recaptcha" data-sitekey="6Le_iuwUAAAAAKGvm6encRSR4gd_JTBDOa1UZxsD"></div>
+                        <h:outputText id="msgRecaptcha2" style="color: red" value="#{controladorRegistro.msgReCaptcha}"/>
+                    </div>
+                    <hr/>
+                </p:outputPanel>
+                <div align="center">
+                    <p:commandButton value="Guardar" icon="fa fa-save" class="green-btn" update="plRegistro msgRecaptcha2 growl" actionListener="#{controladorRegistro.quitarEspacios()}" action="#{controladorRegistro.crearCedula()}" oncomplete="grecaptcha.reset();"/>
+                    <p:commandButton value="Refrescar" class="cyan-btn"  icon="fa fa-refresh" action="#{controladorRegistro.limpiar()}" process="@this" update="plRegistro msgRecaptcha2" immediate="true" oncomplete="grecaptcha.reset();"/>
+                    <p:commandButton class="blue-btn" update="plRegistro msgRecaptcha2 growl" process="@this" immediate="true" action="#{controladorRegistro.limpiar()}" icon="fa fa-close" value="Salir" onclick="PF('dlgRegistro').hide();grecaptcha.reset();"/>
+                </div>
+            </h:form>
+        </p:dialog>
+        <p:dialog id="idDlgVerif" header="Verificación de cuenta" modal="true" widgetVar="dlgVerificacion" position="center center"  visible="#{loginController.visibleDlg}">
+            <h:form id="VerificacionForm">
+                <p:growl id="growl" showDetail="true" sticky="false" life="4000"/> 
+                <p:outputPanel id="plVerificacion" style="text-align:left;">
+                    <h:panelGrid columns="2">
+                        <h:outputText value="Contraseña nueva:"/>
+                        <p:password autocomplete="off" value="#{loginController.usuarioVerificacion.usuContrasenia}" feedback="true"
+                                    required="true" requiredMessage="Ingrese su contraseña nueva"/>
+                        <h:outputText value="Confirmar contraseña:"/>
+                        <p:password autocomplete="off" value="#{loginController.confiContrasenia}" feedback="false"
+                                    required="true" requiredMessage="Vuelva a ingresar su contraseña nueva"/>
+                        <h:outputText value="Código de verificación:" rendered="false"/>
+                        <p:inputMask mask="9999" required="true" rendered="false"
+                                     requiredMessage="Ingrese la clave de verificación"
+                                     value="#{loginController.codigoVerificacion.cvnCodigo}" autocomplete="off"/>
+                    </h:panelGrid>
+                    <hr/>
+
+                </p:outputPanel>
+                <div align="center">
+                    <h:panelGrid columns="2">
+                        <p:commandButton value="Verificar" icon="fa fa-check-square" class="green-btn" update="plVerificacion growl" action="#{loginController.verificarCuenta()}" oncomplete="PF('dlgVerificacion').hide()"/>
+                        <p:commandButton class="red-btn" process="@this" update="plVerificacion idDlgVerif" immediate="true" action="#{loginController.limpiar()}" icon="fa fa-close" value="Salir" onclick="PF('dlgVerificacion').hide()"/>
+                    </h:panelGrid>
+                </div>
+            </h:form>
+        </p:dialog>
+    </ui:composition>
+</html>

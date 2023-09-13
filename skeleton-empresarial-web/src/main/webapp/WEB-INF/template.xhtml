@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      lang="es">
+    
+    <h:head>
+        <h:outputScript  library="verona-layout" name="js/calendar_es.js"/>
+        <h:outputScript name="js/calendar-localization.js"/>
+        <p:growl id="growl" life="7000" sticky="false" showDetail="true"/>
+        <h:form>
+            <p:confirmDialog  widgetVar="dlgConfirmacion" global="true">
+                <p:commandButton value="Si" type="button"  
+                                 styleClass="ui-confirmdialog-yes green-btn" icon="ui-icon-check" />
+                <p:commandButton value="No" type="button"
+                                 styleClass="ui-confirmdialog-no red-btn" icon="ui-icon-close" />
+            </p:confirmDialog>
+
+        </h:form>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+        </f:facet>
+        <title><ui:insert name="title">PrimeFaces Verona</ui:insert></title>
+        <h:outputScript name="js/nanoscroller.js" library="verona-layout" />
+        <h:outputScript name="js/layout.js" library="verona-layout" />
+        <h:outputStylesheet library="css" name="jsfcrud.css"/>
+        <h:outputScript library="js" name="jsfcrud.js"/>
+        <ui:insert name="head"/>
+        
+    </h:head>
+
+    <h:body>
+        <div class="layout-wrapper layout-menu-#{guestPreferences.menuMode}">
+            <ui:include src="topbar.xhtml" />
+
+            <div class="layout-content">
+                <div class="layout-content-container">
+                    <ui:insert name="content"/>    
+                </div>
+
+            </div>
+
+            <!--            <ui:include src="footer.xhtml" />-->
+        </div>
+
+        <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+
+        <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+            <p:graphicImage value="/resources/imagenes/loading.gif"  style="width: 75px; height: 75px;"/>
+        </p:dialog>
+
+        <p:ajaxExceptionHandler type="javax.faces.application.ViewExpiredException"
+                                update="exceptionDialog" 
+                                onexception="PF('DialogoVistaExpirada').show();" />
+
+
+        <p:ajaxExceptionHandler type="java.lang.Throwable"
+                                update="exceptionDialog"
+                                onexception="PF('exceptionDialog').show();" />
+
+        <p:dialog id="exceptionDialog" modal="true" 
+                  widgetVar="exceptionDialog"
+                  height="120px"
+                  header=" "
+                  appendTo="@(body)">
+            <h1 style="font-weight: bold;color: red;text-align: center">¡Error!</h1>
+
+            <h2 >Datos no Validos o Error de configuración.</h2>
+            <h2>Intente de nuevo y si el error persiste contactar al Administrador</h2>
+
+            <p:button class="red-btn" value="Cerrar" onclick="PF('exceptionDialog').hide();" />
+        </p:dialog>
+        
+        <p:dialog id="DialogoVistaExpirada" modal="true" 
+                  widgetVar="DialogoVistaExpirada"
+                  closable="false"
+                  height="120px" 
+                  header="INACTIVIDAD"
+                  appendTo="@(body)">
+            <h2>La página estuvo inactiva, click en aceptar para continuar.</h2>
+            <br></br>
+            <!--<p:button class="cyan-btn" onclick="document.location.href = document.location.href;"
+                      value="Aceptar"
+                      outcome="/cerrarSesion.xhtml"/>-->
+            <p:button class="cyan-btn" onclick="PF('DialogoVistaExpirada').hide()" value="Aceptar"/>
+        </p:dialog>
+
+        <h:outputStylesheet name="css/nanoscroller.css" library="verona-layout" />
+        <h:outputStylesheet name="css/layout-#{guestPreferences.layout}.css" library="verona-layout" />
+    </h:body>
+
+</html>

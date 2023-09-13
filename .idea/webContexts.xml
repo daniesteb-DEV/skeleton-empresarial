@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebContextManager">
+    <option name="state">
+      <map>
+        <entry key="file://$PROJECT_DIR$/RP360MEJIA-web/src/main/webapp/login.xhtml" value="file://$PROJECT_DIR$/RP360MEJIA-web/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/RP360MEJIA-web/src/main/webapp/paginas/Configuracion/Configuracion.xhtml" value="file://$PROJECT_DIR$/RP360MEJIA-web/src/main/webapp/paginas/Configuracion" />
+        <entry key="file://$PROJECT_DIR$/RP360MEJIA-web/src/main/webapp/paginas/Formularios/FormClientePNaturales.xhtml" value="file://$PROJECT_DIR$/RP360MEJIA-web/src/main/webapp/paginas/Formularios" />
+        <entry key="file://$PROJECT_DIR$/RP360MEJIA-web/src/main/webapp/paginas/Inscripcion/Inscripciones/dlgInscripciones.xhtml" value="file://$PROJECT_DIR$/RP360MEJIA-web/src/main/webapp/paginas/Inscripcion/Inscripciones" />
+        <entry key="file://$PROJECT_DIR$/skeleton-empresarial-web/src/main/webapp/login.xhtml" value="file://$PROJECT_DIR$/skeleton-empresarial-web/src/main/webapp" />
+      </map>
+    </option>
+  </component>
+</project>

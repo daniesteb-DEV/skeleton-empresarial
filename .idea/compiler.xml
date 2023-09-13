@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="skeleton-empresarial-ejb" />
+        <module name="skeleton-empresarial-web" />
+        <module name="skeleton-empresarial-ear" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="RP360MEJIA" target="1.5" />
+      <module name="RP360MEJIA-ejb" target="1.8" />
+      <module name="RP360MEJIA-web" target="1.8" />
+      <module name="SKELETONJSF" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="RP360MEJIA-ejb" options="-endorseddirs &quot;C:\Users\danie\OneDrive\Documentos\SoftwareProjects\RP360MEJIA - Copy\RP360MEJIA-ejb\target/endorsed&quot;" />
+      <module name="RP360MEJIA-web" options="-endorseddirs &quot;C:\Users\danie\OneDrive\Documentos\SoftwareProjects\RP360MEJIA - Copy\RP360MEJIA-web\target/endorsed&quot;" />
+      <module name="skeleton-empresarial-ejb" options="-endorseddirs C:\Users\danie\OneDrive\Documentos\SoftwareProjects\skeleton-empresarial\skeleton-empresarial-ejb\target/endorsed" />
+      <module name="skeleton-empresarial-web" options="-endorseddirs C:\Users\danie\OneDrive\Documentos\SoftwareProjects\skeleton-empresarial\skeleton-empresarial-web\target/endorsed" />
+    </option>
+  </component>
+</project>

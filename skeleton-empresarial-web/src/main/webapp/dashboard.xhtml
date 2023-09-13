@@ -1,0 +1,71 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="title">Inicio</ui:define>
+
+    <ui:define name="head">
+        <script type="text/javascript">
+            //<![CDATA[
+            function skinBar() {
+                this.cfg.shadow = false;
+                this.cfg.title = '';
+                this.cfg.seriesColors = ['#9fd037', '#f7cb00'];
+                this.cfg.grid = {
+                    background: '#ffffff',
+                    borderColor: '#ffffff',
+                    gridLineColor: '#dce2e7',
+                    shadow: false
+                };
+                this.cfg.axesDefaults = {
+                    borderWidth: 0.1,
+                    borderColor: 'dce2e7',
+                    rendererOptions: {
+                        textColor: '#2d353c'
+                    }
+                };
+                this.cfg.seriesDefaults = {
+                    shadow: false,
+                    lineWidth: 1,
+                    renderer: $.jqplot.BarRenderer,
+                    markerOptions: {
+                        shadow: false,
+                        size: 7,
+                        style: 'circle'
+                    }
+                }
+            }
+
+            //]]>
+        </script>
+
+
+        <style type="text/css">
+            .main-content {
+                padding: 0;
+            }
+        </style>
+    </ui:define>
+
+    <ui:define name="content">
+        <div style="display: block; margin-left: auto; margin-right: auto;width: 100%">
+            <div class="card">
+                <h:form>
+                    <script>
+                        let details = navigator.userAgent;
+                        let regexp = /android|iphone|kindle|ipad/i;
+                        let isMobileDevice = regexp.test(details);
+                        if (isMobileDevice) {
+                            document.write('<p:breadCrumb><p:menuitem value="Inscripción"/><p:menuitem value="Inscripción" url="/paginas/Formularios/GeneralFormInscripcionUsuario.xhtml"/><p:menuitem value="Otros" url="/paginas/Formularios/GeneralFormOtrosUsuario.xhtml"/></p:breadCrumb>');
+                        }
+                    </script>
+
+                    <p:graphicImage name="#{dataManagerSesion.dashboard}" library="verona-layout" style="width: 80%"/>
+                </h:form>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>
